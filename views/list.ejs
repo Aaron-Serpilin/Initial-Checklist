@@ -1,0 +1,24 @@
+<!-- We can use these layouts to avoid copying the reusable components into each file to render them -->
+<%- include("header") -%>        
+        
+        <div class="box" id="heading">
+            <h1> <%= listTitle %> </h1>
+        </div>
+
+        <div class="box">
+
+            <% for (let i = 0; i < newListItems.length; i++) { %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p> <%= newListItems[i] %> </p> 
+                </div>
+            <% } %>
+
+            <form class="item" action="/" method="post">
+                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="list" value=<%= listTitle %>>+</button> <!-- By using the listTitle as the value, every time we add an item we can see if it was added on the main or the work tab -->
+            </form>
+
+        </div>
+
+<%- include("footer") -%>   
